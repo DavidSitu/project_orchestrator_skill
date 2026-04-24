@@ -1,6 +1,6 @@
 # Retrofit Rules
 
-Use these rules when `$WF` is asked to adopt or restore the workflow in an existing repository, especially via `$wf arche`.
+Use these rules when `$WF` is asked to adopt or restore the workflow in an existing repository, especially via `$wf retrofit`.
 
 ## Goal
 

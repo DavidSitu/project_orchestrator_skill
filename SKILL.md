@@ -19,7 +19,8 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Keep each session section small enough for one focused work session, with a short title and a small checklist.
 - Keep only the current session and the next few sessions in `TODO.md`.
 - Use `LOG.md` as the matching dated record of completed or meaningfully concluded sessions, using the same session IDs.
-- Treat `$wf arche` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
+- Treat `$wf arche` as shorthand for architecture planning and architecture updates.
+- Treat `$wf retrofit` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
 - Use a two-layer architecture doc model by default: top-level docs for cross-cutting truth, subsystem docs for bounded behavior.
 - Stop at subsystem-level by default. Do not split architecture into per-function docs unless a function is unusually critical or complex.
 
@@ -35,7 +36,8 @@ Classify the request first, then run only the relevant path:
 6. `implementation`
 7. `review-debugging`
 
-Treat `$wf arche` as shorthand for `retrofit-existing-project`.
+Treat `$wf retrofit` as shorthand for `retrofit-existing-project`.
+Treat `$wf arche` as shorthand for `architecture-update`.
 
 Do not edit files just because the skill was activated. Activation loads the operating procedure; the user request chooses the path.
 
@@ -97,10 +99,12 @@ Use when the user asks to review the current state, catch up on a repo, or under
 
 ### architecture-update
 
-Use when the user wants docs updated or a subsystem documented.
+Use when the user wants to update architecture docs, plan the overall architecture, or clarify subsystem boundaries.
 
 - Read only the affected current docs.
 - Inspect code if needed to confirm runtime truth.
+- Clarify the architecture scope first: overall system, top-level docs, or one subsystem.
+- Plan or revise subsystem boundaries and top-level architecture structure when needed.
 - Update only the relevant architecture files.
 - Prefer bounded subsystem docs over many small fragmented documents.
 - Do not touch `archive/` unless the request is explicitly historical.
@@ -140,6 +144,6 @@ Use when the user asks for review, diagnosis, or debugging.
 ## Reference Files
 
 - Read `references/planning-rules.md` when planning or reviewing task slices.
-- Read `references/retrofit-rules.md` when handling `$wf arche` or normalizing an existing repo into the WF structure.
+- Read `references/retrofit-rules.md` when handling `$wf retrofit` or normalizing an existing repo into the WF structure.
 - Read `references/doc-update-rules.md` when deciding which architecture doc to update.
 - Read `references/subsystem-doc-template.md` when creating a new subsystem doc.

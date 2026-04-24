@@ -13,7 +13,7 @@ Use it when you want Codex to:
 - bootstrap docs and tracking for a new project
 - retrofit an existing repo into the standard WF structure
 - catch up on an existing repo
-- update architecture docs
+- update architecture docs or plan the overall architecture
 - plan tracked work
 - implement scoped changes
 - review or debug current behavior
@@ -34,10 +34,12 @@ Examples:
 
 ```text
 use $wf, I'm starting a new project for ...
+use $wf retrofit
 use $wf arche
 use $wf and review this repo
 use $wf and split this into sessions
 use $wf and plan feature X
+use $wf arche and plan the overall architecture
 use $wf and update the architecture for subsystem Y
 use $wf and debug the current check-in flow
 ```
@@ -47,8 +49,8 @@ use $wf and debug the current check-in flow
 - New project bootstrap
   - `use $wf, I'm starting a new project for ...`
 - Existing project retrofit
-  - `use $wf arche`
-  - `use $wf arche this repo`
+  - `use $wf retrofit`
+  - `use $wf retrofit this repo`
 - Existing project catch-up
   - `use $wf and review this repo`
   - `use $wf and catch me up on this project`
@@ -59,6 +61,8 @@ use $wf and debug the current check-in flow
   - `use $wf and implement feature X`
   - `use $wf and fix bug Y`
 - Architecture updates
+  - `use $wf arche`
+  - `use $wf arche and plan the overall architecture`
   - `use $wf and update the architecture for subsystem Y`
   - `use $wf and document this repo structure`
 - Review and debugging
@@ -83,7 +87,7 @@ use $wf and debug the current check-in flow
 - it does not turn `TODO.md` into a long backlog
 - it does not encourage per-function architecture docs by default
 
-`$wf arche` is the shorthand for adopting the WF structure in an existing project by creating or normalizing `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/` without treating the repo as a brand-new project.
+`$wf arche` is the shorthand for architecture planning and architecture updates. Use `$wf retrofit` to adopt the WF structure in an existing project by creating or normalizing `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/` without treating the repo as a brand-new project.
 
 ## Recommended Architecture Doc Model
 
