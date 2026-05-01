@@ -21,6 +21,7 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Use `LOG.md` as the matching dated record of completed or meaningfully concluded sessions, using the same session IDs.
 - Treat `$wf arche` as shorthand for architecture planning and architecture updates.
 - Treat `$wf retrofit` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
+- Use the standard architecture folder contract in `references/architecture-structure.md` when bootstrapping, retrofitting, or updating architecture docs.
 - Use a two-layer architecture doc model by default: top-level docs for cross-cutting truth, subsystem docs for bounded behavior.
 - Stop at subsystem-level by default. Do not split architecture into per-function docs unless a function is unusually critical or complex.
 
@@ -70,8 +71,7 @@ If one task requires many scattered top-level docs, consolidate subsystem detail
 Use when the user is starting a new project or explicitly asks to set up the workflow.
 
 - Create `ARCHITECTURE/`, `TODO.md`, and `LOG.md` if they do not already exist.
-- Create the top-level docs in `ARCHITECTURE/current/`.
-- Create `ARCHITECTURE/current/subsystems/README.md`.
+- Create the standard architecture skeleton from `references/architecture-structure.md`.
 - Create initial subsystem docs only for clearly known functional areas.
 - Seed `TODO.md` with an initial date heading and a few session-sized checklist blocks.
 - Add a short `LOG.md` entry only after meaningful setup work is complete.
@@ -84,6 +84,7 @@ Use when the user wants to adopt the WF workflow in the middle of an existing re
 - Preserve useful existing content by default instead of replacing it.
 - Create missing standard WF files and folders only where needed.
 - Normalize tracking and architecture structure conservatively when existing files are nonstandard.
+- Normalize architecture docs against `references/architecture-structure.md`.
 - Seed `TODO.md` in the current session-based format.
 - Add a short `LOG.md` entry only after the retrofit work is meaningfully complete.
 - See `references/retrofit-rules.md` for detailed retrofit and migration guidance.
@@ -102,6 +103,7 @@ Use when the user asks to review the current state, catch up on a repo, or under
 Use when the user wants to update architecture docs, plan the overall architecture, or clarify subsystem boundaries.
 
 - Read only the affected current docs.
+- Read `references/architecture-structure.md` for the standard file roles and folder contract.
 - Inspect code if needed to confirm runtime truth.
 - Clarify the architecture scope first: overall system, top-level docs, or one subsystem.
 - Plan or revise subsystem boundaries and top-level architecture structure when needed.
@@ -145,5 +147,6 @@ Use when the user asks for review, diagnosis, or debugging.
 
 - Read `references/planning-rules.md` when planning or reviewing task slices.
 - Read `references/retrofit-rules.md` when handling `$wf retrofit` or normalizing an existing repo into the WF structure.
+- Read `references/architecture-structure.md` when creating, normalizing, or updating `ARCHITECTURE/`.
 - Read `references/doc-update-rules.md` when deciding which architecture doc to update.
 - Read `references/subsystem-doc-template.md` when creating a new subsystem doc.

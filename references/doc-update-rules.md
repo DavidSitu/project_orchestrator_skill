@@ -1,6 +1,6 @@
 # Doc Update Rules
 
-Use this file to decide which architecture doc should change.
+Use this file to decide which architecture doc should change. Use `references/architecture-structure.md` as the source of truth for the standard `ARCHITECTURE/` folder contract and file responsibilities.
 
 ## Architecture Shape
 
@@ -22,10 +22,11 @@ Avoid too many tiny docs because they increase:
 
 ## Top-Level Docs
 
-- Update `ARCHITECTURE/current/01-project-intent.md` when the product goal, target users, differentiator, scope, or phased direction changes.
-- Update `ARCHITECTURE/current/02-overall-system-design.md` when subsystem boundaries, responsibilities, data flow, backend/frontend ownership, external dependencies, or terminology mappings change.
-- Update `ARCHITECTURE/current/03-overall-ui-design.md` when surfaces, UX principles, navigation, state relationships, canonical UI language, or accessibility expectations change.
-- Update `ARCHITECTURE/current/04-repo-map.md` when entrypoints, folder responsibilities, module ownership, or doc-to-code mapping change.
+- Use `ARCHITECTURE/current/01-project-intent.md` for project intent and constraints.
+- Use `ARCHITECTURE/current/02-overall-system-design.md` for system boundaries and architecture flow.
+- Use `ARCHITECTURE/current/03-overall-ui-design.md` for UI/UX architecture, or mark it `N/A` for projects without a UI.
+- Use `ARCHITECTURE/current/04-repo-map.md` for codebase layout and doc-to-code mapping.
+- Add an ADR under `ARCHITECTURE/decisions/` only when a decision materially constrains future architecture work.
 
 ## Subsystem Docs
 

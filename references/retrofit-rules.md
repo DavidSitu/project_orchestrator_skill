@@ -26,10 +26,9 @@ Ensure these exist when needed:
 
 - `TODO.md`
 - `LOG.md`
-- `ARCHITECTURE/current/`
-- `ARCHITECTURE/current/subsystems/README.md`
+- the standard `ARCHITECTURE/` skeleton from `references/architecture-structure.md`
 
-Create additional top-level architecture docs only when the project has enough real structure to justify them.
+Create the four standard current architecture docs when reconstructing architecture. Mark `03-overall-ui-design.md` as `N/A` with a short reason for backend-only, CLI-only, or library projects. Create `ARCHITECTURE/decisions/` only when recording actual ADRs.
 
 ## TODO Migration Rules
 
@@ -48,7 +47,8 @@ Create additional top-level architecture docs only when the project has enough r
 
 ## Architecture Recovery Rules
 
-- Create the top-level current docs first.
+- Use `references/architecture-structure.md` as the folder and file contract.
+- Create or normalize the top-level current docs first.
 - Create subsystem docs only for clearly justified bounded areas.
 - Prefer a thin but correct first-pass architecture set over speculative detail.
 - Use actual code and project docs as the source of truth when reconstructing missing architecture.

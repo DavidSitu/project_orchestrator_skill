@@ -75,6 +75,7 @@ use $wf and debug the current check-in flow
 - avoids `ARCHITECTURE/archive/` by default
 - reads only the relevant docs and code for the task
 - can restore or normalize `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/` in an existing repo when asked
+- uses a standard architecture folder contract for project intent, system design, UI design, repo mapping, subsystem docs, and optional ADRs
 - uses `TODO.md` as a clean session tracker for current and near-next work
 - uses `LOG.md` as a dated record of completed sessions, decisions, and handoff notes
 - prefers subsystem-level architecture docs over overly fragmented micro-docs
@@ -95,6 +96,16 @@ Use a two-layer architecture model:
 
 - top-level docs for cross-cutting truth
 - subsystem docs for bounded behavior areas
+
+The standard current architecture set is:
+
+- `ARCHITECTURE/README.md`: index, reading order, and folder meanings
+- `ARCHITECTURE/current/01-project-intent.md`: goals, users, scope, non-goals, constraints, and phase
+- `ARCHITECTURE/current/02-overall-system-design.md`: system boundaries, responsibilities, data flow, dependencies, and terminology
+- `ARCHITECTURE/current/03-overall-ui-design.md`: UI surfaces, navigation, key user flows, state relationships, and accessibility; may be marked `N/A`
+- `ARCHITECTURE/current/04-repo-map.md`: folder ownership, entrypoints, module responsibilities, and doc-to-code mapping
+- `ARCHITECTURE/current/subsystems/*.md`: bounded behavior docs using the subsystem template
+- `ARCHITECTURE/decisions/`: optional ADRs for important architecture decisions
 
 For a focused task, the ideal read set is usually:
 
