@@ -1,6 +1,6 @@
 ---
 name: wf
-description: Explicit project-mode workflow for Codex. Use when bootstrapping a new project, retrofitting an existing repo into the workflow, catching up on an existing repo, updating architecture docs, planning tracked work, implementing scoped tasks, or reviewing/debugging within a repo while maintaining session-based TODO.md, LOG.md, and ARCHITECTURE/current/.
+description: Explicit project-mode workflow for Codex. Use when bootstrapping a new project, retrofitting an existing repo into the workflow, catching up on an existing repo, updating architecture docs or milestones, planning tracked work, implementing scoped tasks, or reviewing/debugging within a repo while maintaining session-based TODO.md, LOG.md, and ARCHITECTURE/current/.
 ---
 
 # WF
@@ -17,7 +17,8 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Treat `TODO.md` as the active session queue, not a backlog.
 - Treat `LOG.md` as the completed-session record, not a transcript or changelog.
 - Use the WF session tracking standard in `references/session-tracking.md` when creating, normalizing, or updating `TODO.md` and `LOG.md`.
-- Treat `$wf arche` as shorthand for architecture planning and architecture updates.
+- Treat milestones as product and architecture direction, not execution sessions or a `TODO.md` backlog.
+- Treat `$wf arche` as shorthand for architecture planning, lightweight milestone planning, and architecture updates.
 - Treat `$wf retrofit` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
 - Use the standard architecture folder contract in `references/architecture-structure.md` when bootstrapping, retrofitting, or updating architecture docs.
 - Use a two-layer architecture doc model by default: top-level docs for cross-cutting truth, subsystem docs for bounded behavior.
@@ -99,14 +100,16 @@ Use when the user asks to review the current state, catch up on a repo, or under
 
 ### architecture-update
 
-Use when the user wants to update architecture docs, plan the overall architecture, or clarify subsystem boundaries.
+Use when the user wants to update architecture docs, plan the overall architecture, plan V1/final-product milestones, or clarify subsystem boundaries.
 
 - Read only the affected current docs.
 - Read `references/architecture-structure.md` for the standard file roles and folder contract.
+- Read `references/milestone-planning.md` when product direction is unclear or the user asks for a V1, roadmap, milestone, or final-product plan.
 - Inspect code if needed to confirm runtime truth.
 - Use a planning-first workflow when architecture intent is unclear or the request involves major tradeoffs.
 - Clarify the architecture scope first: overall system, top-level docs, or one subsystem.
-- Confirm project goal, target users, scope, constraints, system type, desired documentation depth, and whether ADRs are needed before creating or rewriting architecture docs.
+- Confirm project goal, target users, scope, constraints, system type, current milestone, desired documentation depth, and whether ADRs are needed before creating or rewriting architecture docs.
+- Keep milestone summaries compact in `ARCHITECTURE/current/01-project-intent.md`.
 - Plan or revise subsystem boundaries and top-level architecture structure when needed.
 - Update only the relevant architecture files.
 - Prefer bounded subsystem docs over many small fragmented documents.
@@ -120,6 +123,7 @@ Use when the user asks for task planning, breakdown, or sequencing.
 - Break work into small verifiable session-sized slices.
 - Read `references/session-tracking.md` before creating or rewriting session entries in `TODO.md`.
 - Refine `TODO.md` using dated session sections instead of a long undifferentiated task list.
+- If planning from milestones, derive only current and near-next executable sessions from the active milestone.
 - If a task spans multiple systems or would take multiple sittings, split it into sequenced sessions.
 - Update architecture docs only if product or system truth changes.
 
@@ -150,6 +154,7 @@ Use when the user asks for review, diagnosis, or debugging.
 
 - Read `references/planning-rules.md` when planning or reviewing task slices.
 - Read `references/session-tracking.md` when creating, normalizing, or updating `TODO.md` and `LOG.md`.
+- Read `references/milestone-planning.md` when planning V0, V1, V1.x, final-product direction, or roadmap-like architecture direction.
 - Read `references/retrofit-rules.md` when handling `$wf retrofit` or normalizing an existing repo into the WF structure.
 - Read `references/architecture-structure.md` when creating, normalizing, or updating `ARCHITECTURE/`.
 - Read `references/doc-update-rules.md` when deciding which architecture doc to update.

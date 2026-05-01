@@ -9,6 +9,7 @@ This is the WF session tracking standard. It is a lightweight repo-local convent
 - `TODO.md` is the active session queue.
 - `LOG.md` is the completed-session record.
 - ADRs under `ARCHITECTURE/decisions/` record architecture decisions, not session history.
+- Milestones are roadmap direction in `ARCHITECTURE/current/01-project-intent.md`, not TODO sessions.
 
 ## TODO.md Format
 
@@ -34,6 +35,7 @@ Rules:
 - Make the final checkbox a verification step when useful.
 - Keep only the current session and the next few sessions.
 - Do not keep a long backlog, speculative ideas, or stale work in `TODO.md`.
+- Do not copy a full milestone roadmap into `TODO.md`; include only executable sessions for active or near-next work.
 
 ## LOG.md Format
 
@@ -63,6 +65,7 @@ Rules:
 
 - Plan active work in `TODO.md`.
 - Execute one session at a time.
+- When work comes from a milestone plan, derive only the current or near-next sessions from the active milestone.
 - If work grows too large, split it into another session instead of extending one session indefinitely.
 - When a session is completed or reaches a meaningful stopping point, write a matching `LOG.md` entry.
 - Mark the completed TODO session done or remove it when rolling the session queue forward.

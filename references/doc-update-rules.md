@@ -22,7 +22,7 @@ Avoid too many tiny docs because they increase:
 
 ## Top-Level Docs
 
-- Use `ARCHITECTURE/current/01-project-intent.md` for project intent and constraints.
+- Use `ARCHITECTURE/current/01-project-intent.md` for project intent, constraints, phase, and compact milestone direction.
 - Use `ARCHITECTURE/current/02-overall-system-design.md` for system boundaries and architecture flow.
 - Use `ARCHITECTURE/current/03-overall-ui-design.md` for UI/UX architecture, or mark it `N/A` for projects without a UI.
 - Use `ARCHITECTURE/current/04-repo-map.md` for codebase layout and doc-to-code mapping.

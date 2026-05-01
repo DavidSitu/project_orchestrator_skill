@@ -18,6 +18,7 @@ For `$wf arche`, first determine whether the user wants exploration, an architec
 - Use current code and current docs as runtime truth for what exists now.
 - Treat product direction, scope, constraints, tradeoffs, and target users as user intent.
 - When architecture intent is unclear, clarify project goal, target users, in-scope and out-of-scope areas, constraints, system type, desired documentation depth, and whether ADRs are needed before writing docs.
+- When the user asks for V1, roadmap, milestones, phases, or final-product direction, use `references/milestone-planning.md`.
 - When the user is in Codex Plan Mode, produce a decision-complete architecture plan before file changes.
 - When the user has already specified the architecture change clearly, update the relevant docs directly.
 - Do not update `TODO.md` for pure architecture discussion unless the architecture work becomes tracked project work.
@@ -46,7 +47,7 @@ ARCHITECTURE/
 ## Top-Level Files
 
 - `ARCHITECTURE/README.md`: index for the architecture set, recommended reading order, folder meanings, and links to current docs, subsystem docs, decisions, and archive when present.
-- `ARCHITECTURE/current/01-project-intent.md`: project goals, target users, scope, non-goals, key constraints, success direction, and current phase.
+- `ARCHITECTURE/current/01-project-intent.md`: project goals, target users, scope, non-goals, key constraints, success direction, current phase, and compact roadmap or milestone direction when needed.
 - `ARCHITECTURE/current/02-overall-system-design.md`: system boundaries, subsystem responsibilities, data flow, external dependencies, backend/frontend ownership, deployment/runtime shape, and shared terminology.
 - `ARCHITECTURE/current/03-overall-ui-design.md`: UI surfaces, navigation, key user flows, state relationships, canonical UI patterns, and accessibility expectations. For backend-only, CLI-only, or library projects, keep the file and mark it `N/A` with a short reason.
 - `ARCHITECTURE/current/04-repo-map.md`: folder responsibilities, entrypoints, major modules, ownership boundaries, generated or external code notes, and doc-to-code mapping.
@@ -71,9 +72,17 @@ ADRs are not TODOs:
 
 Create ADRs only for decisions future contributors would otherwise re-litigate or accidentally undo. Use simple numbered names such as `0001-use-managed-auth-provider.md`.
 
+## Milestones And Roadmap
+
+Use `references/milestone-planning.md` when `$wf arche` needs V0, V1, V1.x, roadmap, phase, or final-product direction.
+
+Keep milestone summaries compact inside `ARCHITECTURE/current/01-project-intent.md`. Milestones guide architecture and session planning, but they are not TODO sessions or ADRs.
+
+Detailed business logic, promotion, go-to-market, GTM, or separate `PRODUCT/` docs are out of scope for this architecture standard version.
+
 ## Update Boundaries
 
-- Update `01-project-intent.md` when product goals, users, scope, non-goals, constraints, or phase direction changes.
+- Update `01-project-intent.md` when product goals, users, scope, non-goals, constraints, milestone direction, roadmap direction, or phase direction changes.
 - Update `02-overall-system-design.md` when system boundaries, ownership, data flow, dependencies, runtime shape, or shared terminology changes.
 - Update `03-overall-ui-design.md` when surfaces, navigation, key journeys, UI state rules, visual language, or accessibility expectations change.
 - Update `04-repo-map.md` when entrypoints, folder responsibilities, module ownership, generated code, or doc-to-code mapping changes.
