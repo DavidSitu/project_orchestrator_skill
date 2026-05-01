@@ -88,7 +88,7 @@ use $wf and debug the current check-in flow
 - it does not treat `TODO.md` or `LOG.md` as an industry standard; they are WF's lightweight repo-local tracking convention
 - it does not encourage per-function architecture docs by default
 
-`$wf arche` is the shorthand for architecture planning and architecture updates. Use `$wf retrofit` to adopt the WF structure in an existing project by creating or normalizing `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/` without treating the repo as a brand-new project.
+`$wf arche` is the shorthand for architecture planning and architecture updates. It should be planning-first when architecture direction is unclear, and direct-edit when the requested architecture change is already clear. Use `$wf retrofit` to adopt the WF structure in an existing project by creating or normalizing `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/` without treating the repo as a brand-new project.
 
 ## Session Tracking
 

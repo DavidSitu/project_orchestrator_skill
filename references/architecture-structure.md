@@ -10,6 +10,18 @@ Reference anchors:
 - C4 model: https://c4model.com/
 - ADRs: https://adr.github.io/
 
+## Planning-First Architecture
+
+For `$wf arche`, first determine whether the user wants exploration, an architecture plan, or direct documentation edits.
+
+- Ask only for missing intent that cannot be learned from existing docs or code.
+- Use current code and current docs as runtime truth for what exists now.
+- Treat product direction, scope, constraints, tradeoffs, and target users as user intent.
+- When architecture intent is unclear, clarify project goal, target users, in-scope and out-of-scope areas, constraints, system type, desired documentation depth, and whether ADRs are needed before writing docs.
+- When the user is in Codex Plan Mode, produce a decision-complete architecture plan before file changes.
+- When the user has already specified the architecture change clearly, update the relevant docs directly.
+- Do not update `TODO.md` for pure architecture discussion unless the architecture work becomes tracked project work.
+
 ## Folder Contract
 
 Use this structure by default:

@@ -104,7 +104,9 @@ Use when the user wants to update architecture docs, plan the overall architectu
 - Read only the affected current docs.
 - Read `references/architecture-structure.md` for the standard file roles and folder contract.
 - Inspect code if needed to confirm runtime truth.
+- Use a planning-first workflow when architecture intent is unclear or the request involves major tradeoffs.
 - Clarify the architecture scope first: overall system, top-level docs, or one subsystem.
+- Confirm project goal, target users, scope, constraints, system type, desired documentation depth, and whether ADRs are needed before creating or rewriting architecture docs.
 - Plan or revise subsystem boundaries and top-level architecture structure when needed.
 - Update only the relevant architecture files.
 - Prefer bounded subsystem docs over many small fragmented documents.
