@@ -169,3 +169,5 @@ Use when the user asks for review, diagnosis, or debugging.
 - Read `references/doc-update-rules.md` when deciding which architecture doc to update.
 - Read `references/subsystem-doc-template.md` when creating a new subsystem doc.
 - Read `references/subsystem-planning-rules.md` when defining subsystem granularity, code ownership, import rules, test strategy, or refactor sequencing.
+- Read `references/code-manager-integration.md` when implementation work needs physical file organization, file moves, import cleanup, test placement, TDD, diagnosis loops, or structured refactor execution.
+- Read `references/code-manager-skill-blueprint.md` only when designing or creating the separate `code-manager` skill.
