@@ -19,6 +19,7 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Treat `LOG.md` as the completed-session record, not a transcript or changelog.
 - Use the WF session tracking standard in `references/session-tracking.md` when creating, normalizing, or updating `TODO.md` and `LOG.md`.
 - Treat milestones as product and architecture direction, not execution sessions or a `TODO.md` backlog.
+- Build milestones through detailed TODO sessions. A milestone is complete only when the implementation sessions derived from it are finished, verified, and recorded.
 - Treat `$wf arche` as shorthand for architecture planning, lightweight milestone planning, and architecture updates.
 - Treat `$wf retrofit` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
 - Use the standard architecture folder contract in `references/architecture-structure.md` when bootstrapping, retrofitting, or updating architecture docs.
@@ -26,6 +27,7 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Stop at subsystem-level by default. Do not split architecture into per-function docs unless a function is unusually critical or complex.
 - Treat a subsystem as a bounded behavior area that owns meaningful code, state, interfaces, dependencies, and tests.
 - Do not create subsystem docs per function, hook, widget, or UI page by default; a page or device capability becomes a subsystem only when it owns a real workflow or lifecycle.
+- Session size does not determine file size. Implement session work inside the correct subsystem or module; do not create one file per function or one file per checklist item.
 - Use `references/subsystem-planning-rules.md` when planning subsystem boundaries, repo layout, import rules, test ownership, or subsystem-by-subsystem refactors.
 
 ## Request Classification

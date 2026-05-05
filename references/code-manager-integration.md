@@ -46,10 +46,18 @@ Code layout implements the contract.
 
 Tests prove the contract.
 
+Milestones become code through verified TODO sessions, but TODO sessions do not define file boundaries. A session is one testable capability slice. A module or file is one coherent ownership boundary. Functions are implementation details inside that boundary.
+
+Do not create one file per function or one file per checklist item. Split files by subsystem ownership, data ownership, dependency direction, lifecycle, independently testable behavior, or repeated reasons to change. Prefer compact deep modules over many shallow pass-through files.
+
 The intended flow:
 
-1. `$wf` identifies the active session and affected subsystem.
-2. `code-manager` aligns files, imports, public APIs, and tests to that subsystem contract.
-3. `$wf` records completed outcomes and updates docs only when project truth changes.
+1. `$wf` identifies the active milestone when relevant.
+2. `$wf` derives or selects the current TODO session.
+3. `$wf` identifies the affected subsystem.
+4. `code-manager` aligns files, imports, public APIs, and tests to that subsystem contract.
+5. `code-manager` implements the session inside the correct module boundaries.
+6. `code-manager` verifies the session outcome.
+7. `$wf` records completed outcomes and updates docs only when project truth changes.
 
 Do not duplicate the full code-manager rules inside WF. Keep WF focused on planning, architecture truth, and session tracking.

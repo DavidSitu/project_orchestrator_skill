@@ -117,6 +117,21 @@ Use the fewest milestone versions needed to make the roadmap clear. Milestones g
 
 `02-milestones.md` may stay very short for small projects. Its role is product and architecture phase direction, not backlog, GTM, business planning, or a second TODO file.
 
+A milestone is not complete because the milestone doc exists. It is complete when the TODO sessions derived from it are implemented, verified, and recorded in `LOG.md`.
+
+Use this mapping:
+
+```text
+Milestone = product capability direction
+TODO session = one testable slice of that capability
+Module/file = one coherent ownership boundary
+Function = internal behavior inside that module
+Test = proof
+LOG = completion record
+```
+
+Build milestones through detailed TODO sessions, but organize code by ownership boundaries, not by checklist items. Do not create one file per function or one file per TODO checkbox.
+
 ## Session Tracking
 
 WF uses a session tracking convention for agent work:

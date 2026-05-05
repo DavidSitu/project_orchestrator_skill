@@ -15,6 +15,8 @@ Use `references/subsystem-planning-rules.md` when a plan involves code ownership
 - If a task spans multiple systems or sittings, split it into sequenced sessions whenever possible.
 - Keep only the current and near-next sessions in `TODO.md`. Remove stale or merged items.
 - Treat milestones as roadmap direction, not session-sized tasks.
+- When planning from a milestone, derive concrete current or near-next TODO sessions from the milestone instead of expanding the milestone doc into a backlog.
+- A milestone is complete only when its derived sessions are implemented, verified, and recorded.
 
 ## Subsystem Planning Flow
 
@@ -35,6 +37,7 @@ Use `TODO.md` as the active session queue, not a backlog.
 - Keep only the current session, the next few planned sessions, and blockers that affect active or near-next work.
 - If a request is too large, split it into additional sessions instead of extending one session indefinitely.
 - If a roadmap exists, derive `TODO.md` entries only from the active milestone and near-next work.
+- Make TODO sessions detailed enough to execute, but do not make them dictate file boundaries. Sessions are capability slices; modules are ownership boundaries.
 
 ## LOG Discipline
 

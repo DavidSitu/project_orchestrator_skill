@@ -27,6 +27,22 @@ A page, device capability, or external integration becomes a subsystem only when
 
 Example: `CameraButton` is not a subsystem. `camera-capture-and-upload` can be a subsystem if it owns permissions, preview lifecycle, capture, compression, upload, error states, and tests.
 
+## Session-To-Code Mapping
+
+Small implementation sessions do not imply tiny files.
+
+Use this mapping:
+
+```text
+TODO session = one testable capability slice
+Module or file = one coherent ownership boundary
+Function = internal behavior inside that module
+Test = proof
+LOG = completion record
+```
+
+Do not split files by individual functions or checklist items. Split files by subsystem ownership, data ownership, dependency direction, lifecycle, independently testable behavior, or repeated reasons to change. Prefer compact deep modules over many shallow files.
+
 ## Starting Granularity
 
 For a medium application, start with roughly 4-8 subsystem candidates. Expand only when repeated work proves that a boundary needs its own document, code ownership, and tests.

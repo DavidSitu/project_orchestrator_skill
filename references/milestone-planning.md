@@ -57,6 +57,16 @@ Milestones guide session planning but do not belong in `TODO.md`.
 - A milestone may produce one or more session entries, but only for active or near-next work.
 - Do not copy the full roadmap into `TODO.md`.
 - Do not use milestone labels as session IDs; keep session IDs as `S1`, `S2`, `S3`.
+- A milestone is not complete because the milestone doc exists. It is complete only when all derived implementation sessions are finished, verified, and recorded in `LOG.md`.
+
+Use this mapping:
+
+```text
+Milestone = product capability direction
+TODO session = one testable slice of that capability
+Test = proof the session works
+LOG = completion record for the verified session
+```
 
 ## Planning Flow
 
@@ -66,6 +76,7 @@ Milestones guide session planning but do not belong in `TODO.md`.
 4. Identify architecture implications before proposing subsystem or repo changes.
 5. Update `02-milestones.md` when milestones become accepted project direction.
 6. Create or update `TODO.md` only if the milestone plan turns into tracked implementation work.
+7. Mark milestone progress based on completed, verified, logged sessions rather than on documentation being written.
 
 ## Existing Repo Migration
 
