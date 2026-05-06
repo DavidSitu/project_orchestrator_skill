@@ -9,7 +9,7 @@ Milestones are product and architecture direction. They are not execution sessio
 Use milestone planning when:
 
 - product direction is unclear during `$wf arche`
-- the user asks for V1, V2+, roadmap, milestones, phases, or final-product direction
+- the user asks for MVP, V1, Post-MVP, V1.x, Future, V2+, roadmap, milestones, phases, or final-product direction
 - architecture choices depend on the intended product phase
 - a large request needs a roadmap before it can be split into sessions
 
@@ -19,23 +19,24 @@ Do not use milestone planning for every small architecture edit.
 
 Store compact milestone summaries in `ARCHITECTURE/current/02-milestones.md`.
 
-Keep `ARCHITECTURE/current/01-project-intent.md` limited to stable project target: goals, target users, scope, non-goals, constraints, current phase, and success direction.
+Keep `ARCHITECTURE/current/01-project-intent.md` focused on rich stable product intent: cleaned idea summary, goals, target users or customers, core problem, value proposition, product principles, scope, non-goals, constraints, current phase, and success direction.
 
 Do not create a separate `ARCHITECTURE/current/05-roadmap.md`. Do not create `PRODUCT/`, business logic, promotion, go-to-market, or GTM docs as part of milestone planning.
 
 ## Milestone Format
 
-Use the fewest milestone labels needed to make the roadmap clear. The default ladder is:
+Use the fewest milestone labels needed to make the roadmap clear. Prefer the user's existing vocabulary. For new WF projects, default to combined product/version labels:
 
-`V0 -> V1 -> optional V1.x -> optional V2/V3/V4+ -> Final Product Direction`
+`MVP / V1 -> Post-MVP / V1.x -> optional Future / V2+ -> Final Product Direction`
 
-- `V0`: the smallest useful proving version or internal prototype
-- `V1`: the first coherent user-facing product version
-- `V1.x`: near-term post-V1 improvements that should not block V1
-- `V2`, `V3`, `V4+`: larger product generations added only when each version represents a meaningful capability jump toward the final goal
+- `MVP / V1`: the first coherent user-facing product version or smallest version that proves the product value
+- `Post-MVP / V1.x`: near-term improvements that should not block MVP
+- `Future / V2+`: larger product generations added only when each version represents a meaningful capability jump toward the final goal
 - `Final Product Direction`: the long-term north star, not a committed backlog
 
-Do not force `V2+`. Add major versions only when the final goal is too complex for `V1` plus `V1.x`. Use `V1.x` for incremental improvements and `V2+` for distinct product generations.
+Older or prototype-heavy projects may still use `V0 -> V1 -> optional V1.x -> optional V2+ -> Final Product Direction`. Do not rename existing accepted labels unless the user asks for normalization.
+
+Do not force `Future / V2+`. Add major versions only when the final goal is too complex for MVP plus Post-MVP. Use Post-MVP/V1.x for incremental improvements and Future/V2+ for distinct product generations.
 
 For each milestone, capture only:
 
@@ -44,6 +45,16 @@ For each milestone, capture only:
 - Excluded scope: what is intentionally deferred
 - Architecture implications: system boundaries, data, UI, integration, or subsystem consequences
 - Acceptance signal: how the milestone can be recognized as complete enough
+
+For `MVP / V1`, also capture compact product execution shape when UI or user flow matters:
+
+- MVP user journey flow
+- required pages or surfaces
+- page-level capabilities and logic
+- required buttons or controls
+- minimum required states
+
+This page capability scope belongs in `02-milestones.md` only at the functional level. Do not turn it into a full click-by-click script, visual layout spec, TODO backlog, or file-by-file implementation plan.
 
 Keep milestone entries concise. Prefer 3-6 bullets per milestone over a long roadmap. If `V2+` exists, each major version should have a distinct outcome and acceptance signal.
 
@@ -64,6 +75,7 @@ Use this mapping:
 ```text
 Milestone = product capability direction
 TODO session = one testable slice of that capability
+Module/file = one coherent ownership boundary
 Test = proof the session works
 LOG = completion record for the verified session
 ```
@@ -71,12 +83,13 @@ LOG = completion record for the verified session
 ## Planning Flow
 
 1. Confirm the product goal, target users, scope, non-goals, constraints, and current phase.
-2. Draft `V0`, `V1`, optional `V1.x`, optional `V2+`, and `Final Product Direction` only as far as the user intent supports.
-3. Use `V2+` only for major capability jumps; otherwise keep the roadmap to `V0`, `V1`, optional `V1.x`, and `Final Product Direction`.
-4. Identify architecture implications before proposing subsystem or repo changes.
-5. Update `02-milestones.md` when milestones become accepted project direction.
-6. Create or update `TODO.md` only if the milestone plan turns into tracked implementation work.
-7. Mark milestone progress based on completed, verified, logged sessions rather than on documentation being written.
+2. Draft `MVP / V1`, `Post-MVP / V1.x`, optional `Future / V2+`, and `Final Product Direction` only as far as the user intent supports.
+3. For MVP, include user journey and page capability scope when the product has pages or UI surfaces.
+4. Use `Future / V2+` only for major capability jumps; otherwise keep the roadmap to MVP, Post-MVP, and Final Product Direction.
+5. Identify architecture implications before proposing subsystem or repo changes.
+6. Update `02-milestones.md` when milestones become accepted project direction.
+7. Create or update `TODO.md` only if the milestone plan turns into tracked implementation work.
+8. Mark milestone progress based on completed, verified, logged sessions rather than on documentation being written.
 
 ## Existing Repo Migration
 

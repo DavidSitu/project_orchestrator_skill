@@ -14,6 +14,8 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Use `ARCHITECTURE/current/` as the canonical documentation set.
 - Do not read `ARCHITECTURE/archive/` unless the user explicitly asks for historical context, migration history, or past reasoning.
 - Read only the relevant docs and code for the task. Do not load the whole architecture tree by default.
+- Use progressive read discipline: focused tasks stay narrow, but broad architecture requests must read broadly enough to preserve project-level judgment.
+- For `$wf arche` requests such as global view, overall architecture, whole project direction, MVP plan, final product direction, or broad subsystem boundaries, use a Global Arche Read across the relevant `ARCHITECTURE/current/` docs. Do not apply a hard reference-file cap to these broad architecture requests.
 - Documentation guides understanding. Runtime code is still the final source of truth for actual behavior.
 - Treat `TODO.md` as the active session queue, not a backlog.
 - Treat `LOG.md` as the completed-session record, not a transcript or changelog.
@@ -22,6 +24,8 @@ Use this skill only when the user explicitly invokes `$wf` or clearly asks for t
 - Build milestones through detailed TODO sessions. A milestone is complete only when the implementation sessions derived from it are finished, verified, and recorded.
 - Treat `$wf arche` as shorthand for architecture planning, lightweight milestone planning, and architecture updates.
 - Treat `$wf retrofit` as shorthand for restoring or normalizing the standard WF structure in an existing repository.
+- Support the product-to-code SOP: manual product plan and strategy validation feed WF architecture docs; WF captures MVP/Post-MVP scope; UI design can be updated after external design assets or prompts; implementation proceeds through TODO sessions and code-manager-style execution.
+- When the user provides a whole idea document at WF startup, distill it into durable architecture docs instead of treating it as loose notes. Keep a rich cleaned version of accepted product intent in `01-project-intent.md`; do not store the raw full brief by default.
 - Use the standard architecture folder contract in `references/architecture-structure.md` when bootstrapping, retrofitting, or updating architecture docs.
 - Use a two-layer architecture doc model by default: top-level docs for cross-cutting truth, subsystem docs for bounded behavior.
 - Stop at subsystem-level by default. Do not split architecture into per-function docs unless a function is unusually critical or complex.
@@ -60,6 +64,17 @@ For real project work, read in this order when relevant:
 7. The actual code paths touched by the task
 
 Skip files that do not exist or are not needed for the current path.
+
+For a Global Arche Read, read enough current architecture context to reason about the whole project:
+
+- `ARCHITECTURE/current/01-project-intent.md`
+- `ARCHITECTURE/current/02-milestones.md`
+- `ARCHITECTURE/current/03-overall-system-design.md`
+- `ARCHITECTURE/current/04-overall-ui-design.md` when the project has UI or UX implications
+- `ARCHITECTURE/current/05-repo-map.md` when code organization or implementation planning matters
+- relevant subsystem docs when broad boundaries, lifecycle, state, or data ownership matter
+
+Use this broad read for global view, overall architecture, whole project, MVP plan, final product direction, repo structure, or broad subsystem-boundary requests. Do not use it for a small bug, one page tweak, or one subsystem implementation session.
 
 For a focused task, the ideal read set is usually:
 
@@ -108,18 +123,21 @@ Use when the user asks to review the current state, catch up on a repo, or under
 
 ### architecture-update
 
-Use when the user wants to update architecture docs, plan the overall architecture, plan V1, optional V2+, and final-product milestones, or clarify subsystem boundaries.
+Use when the user wants to update architecture docs, plan the overall architecture, plan MVP/V1, Post-MVP/V1.x, optional Future/V2+, and final-product milestones, or clarify subsystem boundaries.
 
 - Read only the affected current docs.
+- Use Global Arche Read when the request is broad: global view, overall architecture, whole project direction, MVP plan, final product direction, repo structure, or broad subsystem boundaries.
 - Read `references/architecture-structure.md` for the standard file roles and folder contract.
 - Read `references/subsystem-planning-rules.md` when the request involves subsystem granularity, code ownership, test boundaries, import direction, or repo layout.
-- Read `references/milestone-planning.md` when product direction is unclear or the user asks for a V1, optional V2+, roadmap, milestone, or final-product plan.
+- Read `references/milestone-planning.md` when product direction is unclear or the user asks for MVP, V1, Post-MVP, V1.x, optional Future/V2+, roadmap, milestone, or final-product plan.
 - Inspect code if needed to confirm runtime truth.
 - Use a planning-first workflow when architecture intent is unclear or the request involves major tradeoffs.
 - Clarify the architecture scope first: overall system, top-level docs, or one subsystem.
 - Confirm project goal, target users, scope, constraints, system type, current milestone, desired documentation depth, and whether ADRs are needed before creating or rewriting architecture docs.
-- Keep stable project target content in `ARCHITECTURE/current/01-project-intent.md`.
-- Keep milestone summaries compact in `ARCHITECTURE/current/02-milestones.md`.
+- If the user provides an initial idea document, preserve rich accepted product intent in `ARCHITECTURE/current/01-project-intent.md` and distribute the rest into `02-05` by responsibility.
+- Keep stable project target content, target customer, core problem, value proposition, product principles, constraints, and success direction in `ARCHITECTURE/current/01-project-intent.md`.
+- Keep milestone summaries compact in `ARCHITECTURE/current/02-milestones.md`; MVP scope may include user journey flow, page-level capabilities, required buttons/controls, required states, and acceptance signals.
+- Keep UI visual style, navigation, layout patterns, interaction conventions, responsive/accessibility expectations, and screenshot/prompt-derived UI decisions in `ARCHITECTURE/current/04-overall-ui-design.md`.
 - Plan or revise subsystem boundaries and top-level architecture structure when needed.
 - For subsystem planning, define bounded behavior, owned code, public API, internal files, dependency direction, data ownership, and test strategy.
 - Update only the relevant architecture files.
@@ -169,7 +187,7 @@ Use when the user asks for review, diagnosis, or debugging.
 
 - Read `references/planning-rules.md` when planning or reviewing task slices.
 - Read `references/session-tracking.md` when creating, normalizing, or updating `TODO.md` and `LOG.md`.
-- Read `references/milestone-planning.md` when planning V0, V1, V1.x, optional V2+, final-product direction, or roadmap-like architecture direction.
+- Read `references/milestone-planning.md` when planning MVP/V1, Post-MVP/V1.x, optional Future/V2+, final-product direction, or roadmap-like architecture direction.
 - Read `references/retrofit-rules.md` when handling `$wf retrofit` or normalizing an existing repo into the WF structure.
 - Read `references/architecture-structure.md` when creating, normalizing, or updating `ARCHITECTURE/`.
 - Read `references/doc-update-rules.md` when deciding which architecture doc to update.

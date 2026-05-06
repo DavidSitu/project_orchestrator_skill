@@ -19,7 +19,9 @@ For `$wf arche`, first determine whether the user wants exploration, an architec
 - Use current code and current docs as runtime truth for what exists now.
 - Treat product direction, scope, constraints, tradeoffs, and target users as user intent.
 - When architecture intent is unclear, clarify project goal, target users, in-scope and out-of-scope areas, constraints, system type, desired documentation depth, and whether ADRs are needed before writing docs.
-- When the user asks for V1, V2+, roadmap, milestones, phases, or final-product direction, use `references/milestone-planning.md`.
+- When the user asks for global view, overall architecture, whole project direction, MVP planning, final product direction, repo structure, or broad subsystem boundaries, read broadly across the relevant `ARCHITECTURE/current/` docs. Do not use a hard file cap for broad architecture work.
+- When the user asks for MVP/V1, Post-MVP/V1.x, Future/V2+, roadmap, milestones, phases, or final-product direction, use `references/milestone-planning.md`.
+- When the user provides a whole idea document at WF startup, distill accepted product truth into `01-05`. Keep a rich cleaned version of the idea in `01-project-intent.md`; do not store the raw full brief by default.
 - When the user is in Codex Plan Mode, produce a decision-complete architecture plan before file changes.
 - When the user has already specified the architecture change clearly, update the relevant docs directly.
 - Do not update `TODO.md` for pure architecture discussion unless the architecture work becomes tracked project work.
@@ -49,10 +51,10 @@ ARCHITECTURE/
 ## Top-Level Files
 
 - `ARCHITECTURE/README.md`: thin index for the architecture set, recommended reading order, folder meanings, and links to current docs, subsystem docs, decisions, and archive when present.
-- `ARCHITECTURE/current/01-project-intent.md`: stable project target: goals, target users, scope, non-goals, key constraints, success direction, and current phase.
-- `ARCHITECTURE/current/02-milestones.md`: compact product and architecture phase direction such as V0, V1, optional V1.x, optional V2+, and final-product direction. It is not a backlog, TODO file, ADR, business plan, GTM plan, or promotion plan.
+- `ARCHITECTURE/current/01-project-intent.md`: rich stable product intent: cleaned idea summary, goals, target users or customers, core problem, value proposition, product principles, scope, non-goals, key constraints, success direction, and current phase.
+- `ARCHITECTURE/current/02-milestones.md`: compact product and architecture phase direction such as MVP/V1, Post-MVP/V1.x, optional Future/V2+, and final-product direction. MVP scope may include user journey flow, required pages, page-level capabilities, required buttons/controls, required states, and acceptance signal. It is not a backlog, TODO file, ADR, business plan, GTM plan, promotion plan, or file-by-file implementation checklist.
 - `ARCHITECTURE/current/03-overall-system-design.md`: system boundaries, subsystem responsibilities, data flow, external dependencies, backend/frontend ownership, deployment/runtime shape, and shared terminology.
-- `ARCHITECTURE/current/04-overall-ui-design.md`: UI surfaces, navigation, key user flows, state relationships, canonical UI patterns, and accessibility expectations. For backend-only, CLI-only, or library projects, keep the file and mark it `N/A` with a short reason.
+- `ARCHITECTURE/current/04-overall-ui-design.md`: UI design direction, visual language, navigation model, layout patterns, interaction conventions, responsive/accessibility expectations, and screenshot/prompt-derived UI decisions. It may start high-level before external UI design and become more concrete after the user provides screenshots, Figma-like prompts, images, or improved UI prompts. For backend-only, CLI-only, or library projects, keep the file and mark it `N/A` with a short reason.
 - `ARCHITECTURE/current/05-repo-map.md`: folder responsibilities, entrypoints, major modules, ownership boundaries, generated or external code notes, and doc-to-code mapping.
 
 ## Subsystem Files
@@ -81,18 +83,28 @@ Create ADRs only for decisions future contributors would otherwise re-litigate o
 
 ## Milestones And Roadmap
 
-Use `references/milestone-planning.md` when `$wf arche` needs V0, V1, V1.x, optional V2+, roadmap, phase, or final-product direction.
+Use `references/milestone-planning.md` when `$wf arche` needs MVP/V1, Post-MVP/V1.x, optional Future/V2+, roadmap, phase, or final-product direction.
 
 Keep milestone summaries compact inside `ARCHITECTURE/current/02-milestones.md`. Milestones guide architecture and session planning, but they are not TODO sessions or ADRs.
 
 Detailed business logic, promotion, go-to-market, GTM, separate `PRODUCT/` docs, or a separate `05-roadmap.md` are out of scope for this architecture standard version.
 
+## Product-To-Code SOP
+
+WF supports this sequence without adding new commands:
+
+1. The user does manual product planning: product-market-fit hypothesis, target customer, and user journey flow.
+2. The user or another reasoning pass validates business logic and accepted direction.
+3. WF initializes or updates architecture docs, keeping rich accepted intent in `01` and MVP/Post-MVP function scope in `02`.
+4. UI design may happen outside the codebase or through a stronger prompt; when the user returns with screenshots, images, or UI prompts, update `04`.
+5. Implementation planning turns accepted MVP scope into session-sized `TODO.md` entries, then code work follows subsystem/module ownership.
+
 ## Update Boundaries
 
-- Update `01-project-intent.md` when product goals, users, scope, non-goals, constraints, stable success direction, or current phase changes.
-- Update `02-milestones.md` when V0, V1, V1.x, V2+, roadmap direction, milestone direction, phase direction, or final-product direction changes.
+- Update `01-project-intent.md` when product goals, target customer, core problem, value proposition, product principles, users, scope, non-goals, constraints, stable success direction, or current phase changes.
+- Update `02-milestones.md` when MVP/V1, Post-MVP/V1.x, Future/V2+, roadmap direction, milestone direction, phase direction, final-product direction, MVP user journey, page capability scope, required controls, required states, or acceptance signal changes.
 - Update `03-overall-system-design.md` when system boundaries, ownership, data flow, dependencies, runtime shape, or shared terminology changes.
-- Update `04-overall-ui-design.md` when surfaces, navigation, key journeys, UI state rules, visual language, or accessibility expectations change.
+- Update `04-overall-ui-design.md` when UI design direction, visual language, navigation, layout patterns, interaction conventions, responsive/accessibility expectations, or screenshot/prompt-derived UI decisions change.
 - Update `05-repo-map.md` when entrypoints, folder responsibilities, module ownership, generated code, or doc-to-code mapping changes.
 - Update a subsystem doc when one bounded behavior area's flows, states, dependencies, code map, known gaps, or extension points change.
 - Add an ADR when the reason behind an architecture decision matters beyond the current session.

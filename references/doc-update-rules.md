@@ -22,12 +22,24 @@ Avoid too many tiny docs because they increase:
 
 ## Top-Level Docs
 
-- Use `ARCHITECTURE/current/01-project-intent.md` for stable project target: goals, users, scope, non-goals, constraints, current phase, and success direction.
-- Use `ARCHITECTURE/current/02-milestones.md` for V0, V1, optional V1.x, optional V2+, roadmap direction, milestone direction, phase direction, and final-product direction.
+- Use `ARCHITECTURE/current/01-project-intent.md` for rich stable product intent: cleaned idea summary, product goals, target customer or users, core problem, value proposition, product principles, scope, non-goals, constraints, current phase, and success direction.
+- Use `ARCHITECTURE/current/02-milestones.md` for MVP/V1, Post-MVP/V1.x, optional Future/V2+, roadmap direction, milestone direction, phase direction, final-product direction, MVP user journey flow, page capability scope, required buttons/controls, required states, and acceptance signals.
 - Use `ARCHITECTURE/current/03-overall-system-design.md` for system boundaries and architecture flow.
-- Use `ARCHITECTURE/current/04-overall-ui-design.md` for UI/UX architecture, or mark it `N/A` for projects without a UI.
+- Use `ARCHITECTURE/current/04-overall-ui-design.md` for UI design direction, visual language, navigation model, layout patterns, interaction conventions, responsive/accessibility expectations, and screenshot/prompt-derived UI decisions; mark it `N/A` for projects without a UI.
 - Use `ARCHITECTURE/current/05-repo-map.md` for codebase layout and doc-to-code mapping.
 - Add an ADR under `ARCHITECTURE/decisions/` only when a decision materially constrains future architecture work.
+
+## Product And UI Routing
+
+- Initial idea document: distill accepted product truth into `01-05`; keep rich cleaned product intent in `01`; do not store the raw full brief by default.
+- Product idea, product-market-fit hypothesis, target customer, user motivation, product principles, scope, and non-scope belong in `01`.
+- MVP/Post-MVP functional scope, MVP user journey, required pages, page logic, buttons/controls, required states, and acceptance signals belong in `02`.
+- System boundaries, data flow, integrations, runtime shape, and subsystem responsibilities belong in `03`.
+- Visual style, navigation, layout, interaction conventions, responsive/accessibility rules, and decisions from screenshots, images, Figma-like prompts, or UI prompts belong in `04`.
+- Folder ownership, entrypoints, module responsibilities, generated code, and doc-to-code mapping belong in `05`.
+- Deep workflow internals, state machines, data contracts, API contracts, lifecycle behavior, and cross-layer behavior belong in subsystem docs.
+
+Keep the `02` and `04` split clear: `02` says what the MVP UI must functionally include; `04` says how the UI should be designed and experienced.
 
 ## Subsystem Docs
 
@@ -91,6 +103,8 @@ For a focused task, the ideal documentation read set is usually:
 - `05-repo-map.md` only when code location is needed
 
 If a focused task keeps requiring many scattered top-level docs, move the detailed behavior into a subsystem doc instead of fragmenting the top-level set further.
+
+For global architecture requests, including "global view," overall architecture, whole project direction, MVP plan, final product direction, repo structure, or broad subsystem boundaries, read enough `ARCHITECTURE/current/` context to preserve project-level judgment instead of forcing the focused-task read set.
 
 ## Archive Rules
 
