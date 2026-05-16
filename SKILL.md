@@ -34,15 +34,33 @@ Use this skill only when the user explicitly invokes `$po` or clearly asks for t
 - Session size does not determine file size. Coordinate session work around the correct subsystem or module; do not create one file per function or one file per checklist item.
 - Use `references/code-manager-integration.md` when code organization, implementation, refactor, test placement, diagnosis, or focused verification is involved.
 
+## Responsibility Model
+
+Project Orchestrator has three connected layers:
+
+1. Project Memory: owns `ARCHITECTURE/current/`, `TODO.md`, `LOG.md`, ADR triggers, and doc drift handling.
+2. Project Planning: owns milestone-to-session translation, active or near-next TODO sessions, and verification targets.
+3. Project Coordination: owns catch-up, bootstrap/retrofit coordination, implementation handoff, review/debug routing, and `code-manager` handoff.
+
+Keep these layers connected, but do not let one path do all three unless the user request requires it.
+
 ## Request Classification
 
 Run only the path that matches the user's request:
 
+Project Memory:
+
 1. `bootstrap-new-project`
 2. `retrofit-existing-project`
-3. `catch-up-existing-project`
-4. `architecture-update`
-5. `planning`
+3. `architecture-update`
+
+Project Planning:
+
+4. `planning`
+
+Project Coordination:
+
+5. `catch-up-existing-project`
 6. `implementation-coordination`
 7. `review-debugging`
 
@@ -53,15 +71,24 @@ Do not edit files just because the skill was activated. Activation loads the ope
 
 ## Routing Table
 
-| User intent | Path | Primary references |
-| --- | --- | --- |
-| Start the workflow in a new repo | `bootstrap-new-project` | `architecture-structure.md`, `session-tracking.md` |
-| Adopt or restore workflow in an existing repo | `retrofit-existing-project` | `retrofit-rules.md`, `architecture-structure.md`, `session-tracking.md` |
-| Understand current repo state | `catch-up-existing-project` | Relevant current docs, code, tests |
-| Update architecture, milestones, repo map, or subsystem docs | `architecture-update` | `architecture-structure.md`, `doc-update-rules.md`, plus milestone or subsystem refs when relevant |
-| Break work into sessions | `planning` | `planning-rules.md`, `session-tracking.md` |
-| Coordinate a concrete build/change | `implementation-coordination` | `code-manager-integration.md`, relevant docs/code/tests |
-| Review, diagnose, or debug | `review-debugging` | Relevant current docs, code, tests; `planning-rules.md` for review shape |
+| User intent | Layer | Path | Primary references |
+| --- | --- | --- | --- |
+| Start the workflow in a new repo | Memory | `bootstrap-new-project` | `architecture-structure.md`, `session-tracking.md` |
+| Adopt or restore workflow in an existing repo | Memory + Coordination | `retrofit-existing-project` | `retrofit-rules.md`, `architecture-structure.md`, `session-tracking.md` |
+| Understand current repo state | Coordination | `catch-up-existing-project` | Relevant current docs, code, tests |
+| Update architecture, milestones, repo map, or subsystem docs | Memory | `architecture-update` | `architecture-structure.md`, `doc-update-rules.md`, plus milestone or subsystem refs when relevant |
+| Break work into sessions | Planning | `planning` | `planning-rules.md`, `session-tracking.md` |
+| Coordinate a concrete build/change | Coordination + Planning | `implementation-coordination` | `code-manager-integration.md`, relevant docs/code/tests |
+| Review, diagnose, or debug | Coordination | `review-debugging` | Relevant current docs, code, tests; `planning-rules.md` for review shape |
+
+## Path Boundary Rules
+
+- `architecture-update` may update docs, but should not create TODO sessions unless architecture work turns into tracked implementation.
+- `planning` may update `TODO.md`, but should not update architecture docs unless product or system truth changes.
+- `implementation-coordination` may refine the current session and verification target, but should not expand backlog scope.
+- `catch-up-existing-project` should report state, gaps, and next steps without creating files unless asked.
+- `review-debugging` should return findings first and update docs or tracking only when asked or current truth clearly changed.
+- `retrofit-existing-project` may touch all Project Memory files, but should preserve useful existing content and avoid speculative architecture detail.
 
 ## Default Read Order
 
@@ -186,45 +213,27 @@ Use when the user asks for review, diagnosis, or debugging.
 
 ## Output Contracts
 
-For `bootstrap-new-project` and `retrofit-existing-project`, report:
+Project Memory outputs:
 
 - files created or normalized
-- useful content preserved
-- gaps or follow-up sessions still needed
-
-For `catch-up-existing-project`, report:
-
-- current state
-- gaps and risks
-- likely next sessions
-
-For `architecture-update`, report:
-
-- architecture scope
-- files changed or proposed
+- source of truth changed
 - decisions made
 - unresolved questions or ADR needs
 
-For `planning`, report:
+Project Planning outputs:
 
 - active milestone when relevant
 - affected subsystem or behavior area
 - session-sized TODO entries
 - verification target per session
 
-For `implementation-coordination`, report:
+Project Coordination outputs:
 
+- current state, findings, or handoff scope
 - affected subsystem
-- current session scope
 - code-manager handoff points
-- verification target
 - `LOG.md` update only after completion or meaningful stop
-
-For `review-debugging`, report:
-
-- findings first, ordered by severity
 - concrete evidence from docs, code, tests, or runtime behavior
-- open questions or assumptions
 - verification gaps
 
 ## Reference Files
